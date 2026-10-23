@@ -13,13 +13,15 @@
     {id:'p5',name:'T-shirt Oversize',category:'Vêtements',price:12000,oldPrice:15000,variants:'S–XXL · crème, noir',description:'L’essentiel, avec la bonne coupe.',image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80',badge:'BON PLAN'},
     {id:'p6',name:'Lunettes Soleil',category:'Accessoires',price:15000,oldPrice:0,variants:'Noir · écaille',description:'La touche finale, toute l’année.',image:'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80',badge:'NOUVEAU'},
     {id:'p7',name:'Casquette City',category:'Accessoires',price:10000,oldPrice:0,variants:'Taille unique · noir',description:'Une attitude, sans effort.',image:'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',badge:''},
-    {id:'p8',name:'Pantalon Cargo',category:'Vêtements',price:24000,oldPrice:0,variants:'S–XL · olive, noir',description:'Prêt pour tes journées bien remplies.',image:'https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&w=800&q=80',badge:''}
+    {id:'p8',name:'Pantalon Cargo',category:'Vêtements',price:24000,oldPrice:0,variants:'S–XL · olive, noir',description:'Prêt pour tes journées bien remplies.',image:'https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&w=800&q=80',badge:''},
+    {id:'p9',name:'Air Force One',category:'Chaussures',price:12000,oldPrice:0,variants:'',description:'Photo illustrative · tailles et coloris à confirmer sur WhatsApp.',image:'https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=80',badge:'NOUVEAU'}
   ];
   const read = (key, fallback) => { try { const value = localStorage.getItem(key); return value ? JSON.parse(value) : fallback; } catch { return fallback; } };
   let products = read(PRODUCT_KEY, seedProducts);
   let cart = read(CART_KEY, []);
   let settings = read(SETTINGS_KEY, {name:'PLUG CITY 225',whatsapp:'2250508358005',tagline:'Abidjan. À ton rythme.',description:'PLUG CITY 225, c’est la sélection qui te ressemble. Des pièces tendance, des prix accessibles et un service de proximité, pensé pour la vraie vie à Abidjan.',color:'#ff6038',banner:''});
   if (!settings.whatsapp) settings.whatsapp = '2250508358005';
+  if (!products.some(product => product.id === 'p9')) products.push(seedProducts.find(product => product.id === 'p9'));
   let activeCategory = 'Tout';
   let toastTimer;
 
