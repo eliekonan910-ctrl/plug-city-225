@@ -24,7 +24,10 @@
   const airForceSeed = seedProducts.find(product => product.id === 'p9');
   const airForceExisting = products.find(product => product.id === 'p9');
   if (!airForceExisting) products.push(airForceSeed);
-  else if (airForceExisting.image === 'https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=80') airForceExisting.image = airForceSeed.image;
+  else {
+    if (airForceExisting.image === 'https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=80') airForceExisting.image = airForceSeed.image;
+    if ((airForceExisting.description || '').startsWith('Photo illustrative')) airForceExisting.description = airForceSeed.description;
+  }
   let activeCategory = 'Tout';
   let toastTimer;
 
